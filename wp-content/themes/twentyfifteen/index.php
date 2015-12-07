@@ -1,61 +1,88 @@
-<?php
-/**
- * The main template file
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * e.g., it puts together the home page when no home.php file exists.
- *
- * Learn more: {@link https://codex.wordpress.org/Template_Hierarchy}
- *
- * @package WordPress
- * @subpackage Twenty_Fifteen
- * @since Twenty Fifteen 1.0
- */
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="shortcut icon" type="image/png" href="favicon.png"/>
+		<title>Home</title>
+		<link rel="stylesheet" href="public/lib/bootstrap/dist/css/bootstrap.css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="public/css/base.css" media="screen" charset="utf-8">
+		<link rel="stylesheet" href="public/css/style.css" media="screen" charset="utf-8">
+	</head>
+        <body class="bg1">
+		<div class="wrapper">
+			<div class="container">
+			<div class="row">
+                <div class="div-logo">
+                    <img src="public/image/logo.png"/>
+                </div>                                
+			</div>
 
-get_header(); ?>
+			<div class="row text-center margin-bottom-40">
+				<h1 class="font-1 text-shadow-black">Seleccionar jugador</h1>
+			</div>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+			<div class="row">
+				<div class="col-md-4 text-center x-btn-1">
+					<div class="col-md-10">
+						<a href="play.html?player=1"><img src="public/image/player1.png"></a>
+                                            </div>
+					<div class="col-md-10">
+						<a class="font-1 text-shadow-black" href="play.html?player=1">player 1</a>
+					</div>	
+					<div class="col-md-10 font-2">
+					
+                    </div>
+				</div>
 
-		<?php if ( have_posts() ) : ?>
+				<div class="col-md-4 text-center x-btn-1">
+					<div class="col-md-10">
+						<a href="play.html?player=2"><img src="public/image/player2.png"></a>
+					</div>
+					<div class="col-md-10">
+						<a class="font-1 text-shadow-black" href="play.html?player=2">player 2</a>
+					</div>	
+					<div class="col-md-10 font-2">
+					
+					</div>					
+				</div>
 
-			<?php if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-			<?php endif; ?>
+				<div class="col-md-4 text-center x-btn-1">
+					<div class="col-md-10">
+						<a href="play.html?player=3"><img src="public/image/player3.png"></a>
+					</div>
+					<div class="col-md-10">
+						<a class="font-1 text-shadow-black" href="play.html?player=3">player 3</a>
+					</div>	
+					<div class="col-md-10 font-2" >
+					
+					</div>					
+				</div>
+			</div>
 
-			<?php
-			// Start the loop.
-			while ( have_posts() ) : the_post();
-
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'content', get_post_format() );
-
-			// End the loop.
-			endwhile;
-
-			// Previous/next page navigation.
-			the_posts_pagination( array(
-				'prev_text'          => __( 'Previous page', 'twentyfifteen' ),
-				'next_text'          => __( 'Next page', 'twentyfifteen' ),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentyfifteen' ) . ' </span>',
-			) );
-
-		// If no content, include the "No posts found" template.
-		else :
-			get_template_part( 'content', 'none' );
-
-		endif;
-		?>
-
-		</main><!-- .site-main -->
-	</div><!-- .content-area -->
-
-<?php get_footer(); ?>
+		</div>
+		</div>
+		<!-- libs -->
+		<script charset="utf-8" type="text/javascript" src="public/lib/jquery/dist/jquery.js"></script>
+		<script charset="utf-8" type="text/javascript" src="public/lib/jquery-storage-api/jquery.storageapi.js"></script>
+		<script charset="utf-8" type="text/javascript" src="public/js/jquery.url.js"></script>
+		<script>
+			var storage;
+			
+			$(document).ready(function() {
+				// read and save id (localstorage)
+				var ns = $.initNamespaceStorage('ns_name');
+				storage = ns.localStorage;
+				//storage.set('user_id', $.urlParam('user_id'));
+				
+				if ($.urlParam('user_id') == null || $.urlParam('user_id') == '' ) {
+					if ( typeof(storage.get('user_id')) === 'undefined' ) {
+						storage.set('user_id', 'zero');
+					}					
+				} else {
+					storage.set('user_id', $.urlParam('user_id'));
+				}
+				
+			});
+			// miniscript for get URL params
+		</script>
+	</body>
+</html>
