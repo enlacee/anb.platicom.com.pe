@@ -8,7 +8,7 @@
 
 	// variables
 	var VARS = {
-		api_url: 'data.json', //'http://localhost/acopitan/free/app_test_api/home/index',
+		api_url: context.url + '/' + 'data.json', //'http://localhost/acopitan/free/app_test_api/home/index',
 		window_live: true,
 		dom_id_preload: '#preload',
 		dom_id_escenario_titulo: '#escenario-titulo',
@@ -81,7 +81,7 @@
 						clearInterval(me.countdownTimer);
 
 						// alternativa
-						window.location = "index.html?id_user=" + storage.get('user_id');
+						window.location = "index.html?t=m";
 					} else if (flag === false) {
 						VARS.window_live = true;
 					} else {
@@ -160,7 +160,7 @@
 
 			if (data.length > 0) {
 				if (indice > (data.length-1)) {
-					window.location.href = "final.html";
+					window.location.href = "?t=m&final=1";
 				} else {
 					console.log('------------------------');
 					console.log('ESCENARIO DATA');
