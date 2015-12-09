@@ -62,9 +62,7 @@
 				// Agregar link de referencia al juego
 				$linkText = '';
 				if ($the_id == 7140) {
-		            $user_id = get_current_user_id();
-		            $user_info = get_userdata($user_id);
-					$linkText = '<a class="" href="http://enlacee.github.io/app-test/?user_id=' . $user_info->user_login .'">Iniciar Test</a>';
+					$linkText = '<a class="anibal" href="' . get_site_url() . '?t=m">Iniciar Test</a>';
 				}
 				?>
 				<h2><?php the_title(); ?> </h2>		
