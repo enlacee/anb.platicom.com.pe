@@ -11,6 +11,6 @@ setting configuration by database
 baseurl() /?t=m 
 
 
-## preview
+### preview
 
 ![preview platicom](/wp-content/themes/platicom/screenshot.png)
