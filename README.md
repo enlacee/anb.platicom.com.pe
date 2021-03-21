@@ -3,6 +3,10 @@
 this is video game, multiple theme, integration videogame
 game made with JS and HTML.
 
+### support
+
+php 5.6
+
 
 ### how to see videogame
 
